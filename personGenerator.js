@@ -50,6 +50,62 @@ firstNameFemaleJson: `{
             "id_10": "Василиса"
         }
     }`,
+    patronymicMaleJson: `{
+        "count": 10,
+        "list": {
+            "id_1": "Александрович",
+            "id_2": "Максимович",
+            "id_3": "Иванович",
+            "id_4": "Артемович",
+            "id_5": "Дмитриевич",
+            "id_6": "Никитич",
+            "id_7": "Михайлович",
+            "id_8": "Даниилович",
+            "id_9": "Егорович",
+            "id_10": "Андреевич"
+        }
+    }`,
+    patronymicFemaleJson: `{
+        "count": 10,
+        "list": {
+            "id_1": "Александровна",
+            "id_2": "Максимовна",
+            "id_3": "Ивановна",
+            "id_4": "Артемовна",
+            "id_5": "Дмитриевна",
+            "id_6": "Никитична",
+            "id_7": "Михайловна",
+            "id_8": "Данииловна",
+            "id_9": "Егоровна",
+            "id_10": "Андреевна"
+        }
+    }`,
+    professionsMaleJson: `{
+        "count": 8,
+        "list": {
+            "id_1": "Слесарь",
+            "id_2": "Солдат",
+            "id_3": "Шахтёр",
+            "id_4": "Водитель",
+            "id_5": "Инженер",
+            "id_6": "Строитель",
+            "id_7": "Программист",
+            "id_8": "Электрик"
+        }
+    }`,
+    professionsFemaleJson: `{
+        "count": 8,
+        "list": {
+            "id_1": "Учительница",
+            "id_2": "Врач",
+            "id_3": "Бухгалтер",
+            "id_4": "Дизайнер",
+            "id_5": "Менеджер",
+            "id_6": "Парикмахер",
+            "id_7": "Повар",
+            "id_8": "Медсестра"
+        }
+    }`,
     GENDER_MALE: 'Мужчина',
     GENDER_FEMALE: 'Женщина',
 
@@ -101,6 +157,22 @@ firstNameFemaleJson: `{
         }
     },
 
+    randomPatronymic: function(gender) {
+        if (gender === this.GENDER_MALE) {
+            return this.randomValue(this.patronymicMaleJson);
+        } else {
+            return this.randomValue(this.patronymicFemaleJson);
+        }
+    },
+
+    randomProfession: function(gender) {
+        if (gender === this.GENDER_MALE) {
+            return this.randomValue(this.professionsMaleJson);
+        } else {
+            return this.randomValue(this.professionsFemaleJson);
+        }
+    },
+
     randomBirthYear: function() {
         return this.randomIntNumber(2005, 1950);
     },
@@ -110,6 +182,8 @@ firstNameFemaleJson: `{
         this.person.gender = this.randomGender();
         this.person.firstName = this.randomFirstName(this.person.gender);
         this.person.surname = this.randomSurname(this.person.gender);
+        this.person.patronymic = this.randomPatronymic(this.person.gender);
+        this.person.profession = this.randomProfession(this.person.gender);
         this.person.birthYear = this.randomBirthYear();
         
         return this.person;

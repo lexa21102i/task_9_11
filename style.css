@@ -1,39 +1,82 @@
 body {
-            font-family: 'Open Sans', sans-serif;
-            padding-top: 50px;
-            background-color: #f8f9fa;
-        }
-        .game-card {
-            margin-bottom: 30px;
-        }
-        .card-header {
-            background-color: #343a40;
-            color: white;
-            font-weight: bold;
-        }
-        .card-title {
-            color: #343a40;
-            margin-bottom: 20px;
-        }
-        .btn-generate {
-            background-color: #28a745;
-            border-color: #28a745;
-            transition: all 0.3s;
-        }
-        .btn-generate:hover {
-            background-color: #218838;
-            border-color: #1e7e34;
-            transform: translateY(-2px);
-        }
-        .info-item {
-            margin-bottom: 8px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #eee;
-        }
-        .info-item:last-child {
-            border-bottom: none;
-        }
-        .highlight {
-            color: #007bff;
-            font-weight: bold;
-        }
+    font-family: 'Open Sans', sans-serif;
+    padding-top: 50px;
+    background-color: #f8f9fa;
+}
+
+.game-card {
+    margin-bottom: 30px;
+}
+
+.card-header {
+    background-color: #343a40;
+    color: white;
+    font-weight: bold;
+}
+
+.card-title {
+    color: #343a40;
+    margin-bottom: 20px;
+
+}
+
+.btn-generate {
+    background-color: #28a745;
+    border-color: #28a745;
+    transition: all 0.3s;
+}
+
+.btn-generate:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+    transform: translateY(-2px);
+}
+
+.btn-clear {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+    transition: all 0.3s;
+}
+
+.btn-clear:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+    transform: translateY(-2px);
+    color: white;
+}
+
+.info-item {
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+
+}
+
+.highlight {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.details-item {
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.details-item:last-child {
+    margin-right: 0;
+}
+
+.btn-group-custom {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn-group-custom .btn {
+    flex: 1;
+}

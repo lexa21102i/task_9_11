@@ -106,6 +106,23 @@ firstNameFemaleJson: `{
             "id_8": "Медсестра"
         }
     }`,
+    monthsJson: `{
+        "count": 12,
+        "list": {
+            "id_1": {"name": "января", "days": 31},
+            "id_2": {"name": "февраля", "days": 28},
+            "id_3": {"name": "марта", "days": 31},
+            "id_4": {"name": "апреля", "days": 30},
+            "id_5": {"name": "мая", "days": 31},
+            "id_6": {"name": "июня", "days": 30},
+            "id_7": {"name": "июля", "days": 31},
+            "id_8": {"name": "августа", "days": 31},
+            "id_9": {"name": "сентября", "days": 30},
+            "id_10": {"name": "октября", "days": 31},
+            "id_11": {"name": "ноября", "days": 30},
+            "id_12": {"name": "декабря", "days": 31}
+        }
+    }`,
     GENDER_MALE: 'Мужчина',
     GENDER_FEMALE: 'Женщина',
 
@@ -177,6 +194,15 @@ firstNameFemaleJson: `{
         return this.randomIntNumber(2005, 1950);
     },
 
+    randomBirthMonth: function() {
+        const monthData = this.randomValue(this.monthsJson);
+        return monthData;
+    },
+
+    randomBirthDay: function(monthData) {
+        return this.randomIntNumber(monthData.days, 1);
+    },
+
     getPerson: function () {
         this.person = {};
         this.person.gender = this.randomGender();
@@ -185,6 +211,10 @@ firstNameFemaleJson: `{
         this.person.patronymic = this.randomPatronymic(this.person.gender);
         this.person.profession = this.randomProfession(this.person.gender);
         this.person.birthYear = this.randomBirthYear();
+        const monthData = this.randomBirthMonth();
+        this.person.birthMonth = monthData.name;
+        this.person.birthDay = this.randomBirthDay(monthData);
+        this.person.birthDate = `${this.person.birthDay} ${this.person.birthMonth} ${this.person.birthYear}`;
         
         return this.person;
     }
